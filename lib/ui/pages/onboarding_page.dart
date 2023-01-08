@@ -1,6 +1,4 @@
-import 'package:carousel_slider/carousel_slider.dart';
-import 'package:e_wallet/shared/shared.dart';
-import 'package:flutter/material.dart';
+part of 'pages.dart';
 
 class OnboardingPage extends StatefulWidget {
   const OnboardingPage({super.key});
@@ -127,7 +125,14 @@ class _OnboardingPageState extends State<OnboardingPage> {
                           width: double.infinity,
                           height: 24,
                           child: TextButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const SignInPage(),
+                                ),
+                              );
+                            },
                             style: TextButton.styleFrom(
                               padding: EdgeInsets.zero,
                             ),
