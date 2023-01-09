@@ -5,6 +5,7 @@ import 'package:e_wallet/shared/shared.dart';
 import 'package:e_wallet/ui/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
+part 'home_page.dart';
 part 'onboarding_page.dart';
 part 'sign_in_page.dart';
 part 'sign_up_complete_profile_page.dart';
