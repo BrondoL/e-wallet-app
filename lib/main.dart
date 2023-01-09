@@ -1,3 +1,4 @@
+import 'package:e_wallet/ui/pages/home_page.dart';
 import 'package:e_wallet/ui/pages/pages.dart';
 import 'package:flutter/material.dart';
 
@@ -19,6 +20,7 @@ class MyApp extends StatelessWidget {
             const SignUpCompleteProfilePage(),
         '/sign-up-verify-profile': (context) => const SignUpVerifyProfilePage(),
         '/sign-up-success': (context) => const SignUpSuccess(),
+        '/home': (context) => const HomePage(),
       },
     );
   }
