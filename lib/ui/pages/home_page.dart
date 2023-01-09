@@ -77,6 +77,8 @@ class HomePage extends StatelessWidget {
         ),
         children: [
           buildProfile(context),
+          buildWalletCard(),
+          buildLevel(),
         ],
       ),
     );
@@ -144,6 +146,115 @@ class HomePage extends StatelessWidget {
                     ),
                   ),
                 )),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget buildWalletCard() {
+    return Container(
+      width: double.infinity,
+      height: 220,
+      margin: const EdgeInsets.only(
+        top: 30,
+      ),
+      padding: const EdgeInsets.all(30),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(28),
+        image: const DecorationImage(
+          fit: BoxFit.cover,
+          image: AssetImage(
+            'assets/img_bg_card.png',
+          ),
+        ),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'TEST',
+            style: whiteTextStyle.copyWith(
+              fontSize: 18,
+              fontWeight: medium,
+            ),
+          ),
+          const SizedBox(
+            height: 28,
+          ),
+          Text(
+            '**** **** **** 0812',
+            style: whiteTextStyle.copyWith(
+              fontSize: 18,
+              fontWeight: medium,
+              letterSpacing: 6,
+            ),
+          ),
+          const SizedBox(
+            height: 21,
+          ),
+          Text(
+            'Balance',
+            style: whiteTextStyle,
+          ),
+          Text(
+            'Rp. 12313213',
+            style: whiteTextStyle.copyWith(
+              fontSize: 24,
+              fontWeight: semiBold,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget buildLevel() {
+    return Container(
+      margin: const EdgeInsets.only(
+        top: 20,
+      ),
+      padding: const EdgeInsets.all(22),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(20),
+        color: whiteColor,
+      ),
+      child: Column(
+        children: [
+          Row(
+            children: [
+              Text(
+                'Level 1',
+                style: blackTextStyle.copyWith(
+                  fontWeight: medium,
+                ),
+              ),
+              const Spacer(),
+              Text(
+                '55% ',
+                style: greenTextStyle.copyWith(
+                  fontWeight: semiBold,
+                ),
+              ),
+              Text(
+                'of Rp 20.000',
+                style: blackTextStyle.copyWith(
+                  fontWeight: semiBold,
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+          ClipRRect(
+            borderRadius: BorderRadius.circular(55),
+            child: const LinearProgressIndicator(
+              value: 0.55,
+              minHeight: 5,
+              valueColor: AlwaysStoppedAnimation(greenColor),
+              backgroundColor: lightBackgroundColor,
+            ),
           ),
         ],
       ),
