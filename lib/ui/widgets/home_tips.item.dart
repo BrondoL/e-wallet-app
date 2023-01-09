@@ -13,7 +13,12 @@ class HomeTipsItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () async {
+        Uri url = Uri.parse(thumbnail);
+        if (await canLaunchUrl(url)) {
+          launchUrl(url);
+        }
+      },
       child: Container(
         width: 155,
         height: 176,
