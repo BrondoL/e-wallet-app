@@ -1,7 +1,7 @@
 part of 'pages.dart';
 
-class SignUpCompleteProfilePage extends StatelessWidget {
-  const SignUpCompleteProfilePage({super.key});
+class SignUpVerifyProfilePage extends StatelessWidget {
+  const SignUpVerifyProfilePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -76,36 +76,31 @@ class SignUpCompleteProfilePage extends StatelessWidget {
                   height: 16,
                 ),
                 Text(
-                  'Shayna Hanna',
+                  'Passport/ID Card',
                   style: blackTextStyle.copyWith(
                     fontSize: 18,
                     fontWeight: medium,
                   ),
                 ),
                 const SizedBox(
-                  height: 30,
-                ),
-                const CustomTextField(
-                  title: 'Set PIN (6 digit number)',
-                ),
-                const SizedBox(
-                  height: 30,
+                  height: 50,
                 ),
                 CustomFilledButton(
                   title: 'Continue',
                   onPressed: () => {
                     Navigator.pushNamed(
                       context,
-                      '/sign-up-verify-profile',
-                    )
+                      '/sign-up',
+                    ),
                   },
                 ),
               ],
             ),
           ),
           const SizedBox(
-            height: 50,
+            height: 60,
           ),
+          const CustomTextButton(title: 'Skip for Now')
         ],
       ),
     );

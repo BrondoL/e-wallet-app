@@ -9,4 +9,5 @@ part 'onboarding_page.dart';
 part 'sign_in_page.dart';
 part 'sign_up_complete_profile_page.dart';
 part 'sign_up_page.dart';
+part 'sign_up_verify_profile_page.dart';
 part 'splash_page.dart';
