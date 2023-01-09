@@ -14,6 +14,9 @@ class MyApp extends StatelessWidget {
         '/': (context) => const SplashPage(),
         '/onboarding': (context) => const OnboardingPage(),
         '/sign-in': (context) => const SignInPage(),
+        '/sign-up': (context) => const SignUpPage(),
+        '/sign-up-complete-profile': (context) =>
+            const SignUpCompleteProfilePage(),
       },
     );
   }

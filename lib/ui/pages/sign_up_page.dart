@@ -1,7 +1,7 @@
 part of 'pages.dart';
 
-class SignInPage extends StatelessWidget {
-  const SignInPage({super.key});
+class SignUpPage extends StatelessWidget {
+  const SignUpPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +27,7 @@ class SignInPage extends StatelessWidget {
             )),
           ),
           Text(
-            'Sign In &\nGrow Your Finance',
+            'Join Us to Unlock\nYour Growth',
             style: blackTextStyle.copyWith(
               fontSize: 20,
               fontWeight: semiBold,
@@ -46,6 +46,12 @@ class SignInPage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const CustomTextField(
+                  title: 'Full Name',
+                ),
+                const SizedBox(
+                  height: 16,
+                ),
+                const CustomTextField(
                   title: 'Email Address',
                 ),
                 const SizedBox(
@@ -56,20 +62,14 @@ class SignInPage extends StatelessWidget {
                   obscureText: true,
                 ),
                 const SizedBox(
-                  height: 8,
-                ),
-                Align(
-                  alignment: Alignment.centerRight,
-                  child: Text(
-                    'Forgot Password',
-                    style: blueTextStyle,
-                  ),
-                ),
-                const SizedBox(
                   height: 30,
                 ),
-                const CustomFilledButton(
-                  title: 'Sign In',
+                CustomFilledButton(
+                  title: 'Continue',
+                  onPressed: () => Navigator.pushNamed(
+                    context,
+                    '/sign-up-complete-profile',
+                  ),
                 ),
               ],
             ),
@@ -78,11 +78,11 @@ class SignInPage extends StatelessWidget {
             height: 50,
           ),
           CustomTextButton(
-            title: 'Create New Account',
+            title: 'Sign In',
             onPressed: () => {
               Navigator.pushNamed(
                 context,
-                '/sign-up',
+                '/sign-in',
               ),
             },
           )
