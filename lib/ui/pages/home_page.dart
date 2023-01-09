@@ -82,6 +82,7 @@ class HomePage extends StatelessWidget {
           buildServices(context),
           buildLatestTransactions(),
           buildSendAgain(),
+          buildFriendlyTips(),
         ],
       ),
     );
@@ -360,47 +361,98 @@ class HomePage extends StatelessWidget {
 
   Widget buildSendAgain() {
     return Container(
-        margin: const EdgeInsets.only(
-          top: 30,
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'Send Again',
-              style: blackTextStyle.copyWith(
-                fontSize: 16,
-                fontWeight: semiBold,
-              ),
+      margin: const EdgeInsets.only(
+        top: 30,
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'Send Again',
+            style: blackTextStyle.copyWith(
+              fontSize: 16,
+              fontWeight: semiBold,
             ),
-            const SizedBox(
-              height: 14,
+          ),
+          const SizedBox(
+            height: 14,
+          ),
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              children: const [
+                HomeUserItem(
+                  imageUrl: 'assets/img_friend1.png',
+                  username: 'yuanita',
+                ),
+                HomeUserItem(
+                  imageUrl: 'assets/img_friend2.png',
+                  username: 'jani',
+                ),
+                HomeUserItem(
+                  imageUrl: 'assets/img_friend3.png',
+                  username: 'urip',
+                ),
+                HomeUserItem(
+                  imageUrl: 'assets/img_friend4.png',
+                  username: 'firman',
+                ),
+              ],
             ),
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                children: const [
-                  HomeUserItem(
-                    imageUrl: 'assets/img_friend1.png',
-                    username: 'yuanita',
-                  ),
-                  HomeUserItem(
-                    imageUrl: 'assets/img_friend2.png',
-                    username: 'jani',
-                  ),
-                  HomeUserItem(
-                    imageUrl: 'assets/img_friend3.png',
-                    username: 'urip',
-                  ),
-                  HomeUserItem(
-                    imageUrl: 'assets/img_friend4.png',
-                    username: 'firman',
-                  ),
-                ],
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget buildFriendlyTips() {
+    return Container(
+      margin: const EdgeInsets.only(
+        top: 30,
+        bottom: 50,
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'Friendly Tips',
+            style: blackTextStyle.copyWith(
+              fontSize: 16,
+              fontWeight: semiBold,
+            ),
+          ),
+          const SizedBox(
+            height: 14,
+          ),
+          Wrap(
+            spacing: 17,
+            runSpacing: 18,
+            children: const [
+              HomeTipsItem(
+                thumbnail:
+                    'https://cdn.pixabay.com/photo/2018/10/28/16/11/volcano-3779159__340.jpg',
+                title: 'asdadsads',
               ),
-            )
-          ],
-        ));
+              HomeTipsItem(
+                thumbnail:
+                    'https://cdn.pixabay.com/photo/2018/10/28/16/11/volcano-3779159__340.jpg',
+                title: 'asdadsads',
+              ),
+              HomeTipsItem(
+                thumbnail:
+                    'https://cdn.pixabay.com/photo/2018/10/28/16/11/volcano-3779159__340.jpg',
+                title: 'asdadsads',
+              ),
+              HomeTipsItem(
+                thumbnail:
+                    'https://cdn.pixabay.com/photo/2018/10/28/16/11/volcano-3779159__340.jpg',
+                title: 'asdadsads',
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
   }
 }
 
