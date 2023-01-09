@@ -90,7 +90,7 @@ class SignUpVerifyProfilePage extends StatelessWidget {
                   onPressed: () => {
                     Navigator.pushNamed(
                       context,
-                      '/sign-up',
+                      '/sign-up-success',
                     ),
                   },
                 ),
@@ -100,7 +100,13 @@ class SignUpVerifyProfilePage extends StatelessWidget {
           const SizedBox(
             height: 60,
           ),
-          const CustomTextButton(title: 'Skip for Now')
+          CustomTextButton(
+            title: 'Skip for Now',
+            onPressed: () => Navigator.pushNamed(
+              context,
+              '/sign-up-success',
+            ),
+          )
         ],
       ),
     );
