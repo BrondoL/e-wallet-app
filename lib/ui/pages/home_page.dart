@@ -81,6 +81,7 @@ class HomePage extends StatelessWidget {
           buildLevel(),
           buildServices(context),
           buildLatestTransactions(),
+          buildSendAgain(),
         ],
       ),
     );
@@ -355,6 +356,51 @@ class HomePage extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  Widget buildSendAgain() {
+    return Container(
+        margin: const EdgeInsets.only(
+          top: 30,
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Send Again',
+              style: blackTextStyle.copyWith(
+                fontSize: 16,
+                fontWeight: semiBold,
+              ),
+            ),
+            const SizedBox(
+              height: 14,
+            ),
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: const [
+                  HomeUserItem(
+                    imageUrl: 'assets/img_friend1.png',
+                    username: 'yuanita',
+                  ),
+                  HomeUserItem(
+                    imageUrl: 'assets/img_friend2.png',
+                    username: 'jani',
+                  ),
+                  HomeUserItem(
+                    imageUrl: 'assets/img_friend3.png',
+                    username: 'urip',
+                  ),
+                  HomeUserItem(
+                    imageUrl: 'assets/img_friend4.png',
+                    username: 'firman',
+                  ),
+                ],
+              ),
+            )
+          ],
+        ));
   }
 }
 
