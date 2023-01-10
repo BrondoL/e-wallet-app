@@ -122,34 +122,35 @@ class HomePage extends StatelessWidget {
               Navigator.pushNamed(context, '/profile');
             },
             child: Container(
-                width: 60,
-                height: 60,
-                decoration: const BoxDecoration(
-                  shape: BoxShape.circle,
-                  image: DecorationImage(
-                    image: AssetImage(
-                      'assets/img_profile.png',
+              width: 60,
+              height: 60,
+              decoration: const BoxDecoration(
+                shape: BoxShape.circle,
+                image: DecorationImage(
+                  image: AssetImage(
+                    'assets/img_profile.png',
+                  ),
+                ),
+              ),
+              child: Align(
+                alignment: Alignment.topRight,
+                child: Container(
+                  width: 16,
+                  height: 16,
+                  decoration: const BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: whiteColor,
+                  ),
+                  child: const Center(
+                    child: Icon(
+                      Icons.check_circle,
+                      color: greenColor,
+                      size: 14,
                     ),
                   ),
                 ),
-                child: Align(
-                  alignment: Alignment.topRight,
-                  child: Container(
-                    width: 16,
-                    height: 16,
-                    decoration: const BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: whiteColor,
-                    ),
-                    child: const Center(
-                      child: Icon(
-                        Icons.check_circle,
-                        color: greenColor,
-                        size: 14,
-                      ),
-                    ),
-                  ),
-                )),
+              ),
+            ),
           ),
         ],
       ),

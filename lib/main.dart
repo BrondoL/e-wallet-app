@@ -20,6 +20,7 @@ class MyApp extends StatelessWidget {
         '/sign-up-verify-profile': (context) => const SignUpVerifyProfilePage(),
         '/sign-up-success': (context) => const SignUpSuccess(),
         '/home': (context) => const HomePage(),
+        '/profile': (context) => const ProfilePage(),
       },
     );
   }

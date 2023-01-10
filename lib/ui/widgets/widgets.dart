@@ -8,3 +8,4 @@ part 'home_latest_transaction_item.dart';
 part 'home_tips.item.dart';
 part 'home_user_item.dart';
 part 'inputs.dart';
+part 'profile_item_menu.dart';
