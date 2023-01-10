@@ -1,14 +1,14 @@
 part of 'pages.dart';
 
-class ProfileEditPage extends StatelessWidget {
-  const ProfileEditPage({super.key});
+class ProfileEditPinPage extends StatelessWidget {
+  const ProfileEditPinPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Edit Profile',
+          'Edit PIN',
         ),
       ),
       body: ListView(
@@ -29,26 +29,13 @@ class ProfileEditPage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const CustomTextField(
-                  title: 'Username',
+                  title: 'Old PIN',
                 ),
                 const SizedBox(
                   height: 16,
                 ),
                 const CustomTextField(
-                  title: 'Full Name',
-                ),
-                const SizedBox(
-                  height: 16,
-                ),
-                const CustomTextField(
-                  title: 'Email Address',
-                ),
-                const SizedBox(
-                  height: 16,
-                ),
-                const CustomTextField(
-                  title: 'Password',
-                  obscureText: true,
+                  title: 'New PIN',
                 ),
                 const SizedBox(
                   height: 30,
