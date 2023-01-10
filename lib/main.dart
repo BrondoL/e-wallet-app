@@ -37,6 +37,7 @@ class MyApp extends StatelessWidget {
         '/sign-up-success': (context) => const SignUpSuccess(),
         '/home': (context) => const HomePage(),
         '/profile': (context) => const ProfilePage(),
+        '/pin': (context) => const PinPage(),
       },
     );
   }
