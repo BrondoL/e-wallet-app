@@ -1,6 +1,6 @@
 import 'package:e_wallet/shared/shared.dart';
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 part 'bank_item.dart';
 part 'buttons.dart';

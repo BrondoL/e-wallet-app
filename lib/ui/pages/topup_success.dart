@@ -34,11 +34,13 @@ class TopupSuccessPage extends StatelessWidget {
             CustomFilledButton(
               title: 'Back to Home',
               width: 183,
-              onPressed: () => Navigator.pushNamedAndRemoveUntil(
-                context,
-                '/home',
-                (route) => false,
-              ),
+              onPressed: () {
+                Navigator.pushNamedAndRemoveUntil(
+                  context,
+                  '/home',
+                  (route) => false,
+                );
+              },
             ),
           ],
         ),

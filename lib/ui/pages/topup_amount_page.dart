@@ -12,6 +12,30 @@ class _TopUpAmountPageState extends State<TopUpAmountPage> {
       TextEditingController(text: '0');
   final String amount = '123123';
 
+  @override
+  void initState() {
+    super.initState();
+
+    amountController.addListener(() {
+      var text = amountController.text;
+      if (text.isEmpty) {
+        text = '0';
+      }
+
+      amountController.value = amountController.value.copyWith(
+        text: NumberFormat.currency(
+          locale: 'id',
+          decimalDigits: 0,
+          symbol: '',
+        ).format(
+          int.parse(
+            text.replaceAll('.', ''),
+          ),
+        ),
+      );
+    });
+  }
+
   addAmount(String number) {
     if (amountController.text == '0') {
       amountController.text = '';
@@ -137,9 +161,11 @@ class _TopUpAmountPageState extends State<TopUpAmountPage> {
           CustomFilledButton(
             title: 'Checkout Now',
             onPressed: () async {
+              final navigator = Navigator.of(context);
               if (await Navigator.pushNamed(context, '/pin') == true) {
-                Navigator.pushNamedAndRemoveUntil(
-                  context,
+                await launchUrlString('https://demo.midtrans.com');
+
+                navigator.pushNamedAndRemoveUntil(
                   '/topup-success',
                   (route) => false,
                 );

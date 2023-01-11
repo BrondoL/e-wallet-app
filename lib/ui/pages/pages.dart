@@ -4,6 +4,8 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:e_wallet/shared/shared.dart';
 import 'package:e_wallet/ui/widgets/widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 part 'home_page.dart';
 part 'onboarding_page.dart';
