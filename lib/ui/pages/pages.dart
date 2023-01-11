@@ -18,4 +18,5 @@ part 'sign_up_page.dart';
 part 'sign_up_success.dart';
 part 'sign_up_verify_profile_page.dart';
 part 'splash_page.dart';
+part 'topup_amount_page.dart';
 part 'topup_page.dart';
