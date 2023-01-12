@@ -44,6 +44,7 @@ class MyApp extends StatelessWidget {
         '/topup': (context) => const TopUpPage(),
         '/topup-amount': (context) => const TopUpAmountPage(),
         '/topup-success': (context) => const TopupSuccessPage(),
+        '/transfer': (context) => const TransferPage(),
       },
     );
   }

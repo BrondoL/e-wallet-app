@@ -4,12 +4,16 @@ class CustomTextField extends StatelessWidget {
   final String title;
   final bool obscureText;
   final TextEditingController? controller;
+  final bool isShowTitle;
+  final Function(String)? onFieldSubmitted;
 
   const CustomTextField({
     super.key,
     required this.title,
     this.obscureText = false,
     this.controller,
+    this.isShowTitle = true,
+    this.onFieldSubmitted,
   });
 
   @override
@@ -17,23 +21,28 @@ class CustomTextField extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          title,
-          style: blackTextStyle.copyWith(
-            fontWeight: medium,
+        if (isShowTitle)
+          Text(
+            title,
+            style: blackTextStyle.copyWith(
+              fontWeight: medium,
+            ),
           ),
-        ),
-        const SizedBox(
-          height: 8,
-        ),
+        if (isShowTitle)
+          const SizedBox(
+            height: 8,
+          ),
         TextFormField(
           controller: controller,
           obscureText: obscureText,
           decoration: InputDecoration(
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(14),
-              ),
-              contentPadding: const EdgeInsets.all(12)),
+            hintText: !isShowTitle ? title : null,
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(14),
+            ),
+            contentPadding: const EdgeInsets.all(12),
+          ),
+          onFieldSubmitted: onFieldSubmitted,
         ),
       ],
     );

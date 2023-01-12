@@ -23,3 +23,4 @@ part 'splash_page.dart';
 part 'topup_amount_page.dart';
 part 'topup_page.dart';
 part 'topup_success.dart';
+part 'transfer_page.dart';
