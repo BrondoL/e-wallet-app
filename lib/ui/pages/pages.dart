@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
+part 'data_package_page.dart';
 part 'data_provider_page.dart';
 part 'home_page.dart';
 part 'onboarding_page.dart';

@@ -48,6 +48,7 @@ class MyApp extends StatelessWidget {
         '/transfer-amount': (context) => const TransferAmountPage(),
         '/transfer-success': (context) => const TransferSuccessPage(),
         '/data-provider': (context) => const DataProviderPage(),
+        '/data-package': (context) => const DataPackagePage(),
       },
     );
   }

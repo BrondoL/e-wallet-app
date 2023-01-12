@@ -9,6 +9,7 @@ part 'home_latest_transaction_item.dart';
 part 'home_tips.item.dart';
 part 'home_user_item.dart';
 part 'inputs.dart';
+part 'package_item.dart';
 part 'profile_item_menu.dart';
 part 'provider_item.dart';
 part 'transfer_recent_user_item.dart';

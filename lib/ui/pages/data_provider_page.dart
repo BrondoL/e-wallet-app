@@ -85,7 +85,7 @@ class DataProviderPage extends StatelessWidget {
             title: 'Continue',
             onPressed: () => Navigator.pushNamed(
               context,
-              '/topup-amount',
+              '/data-package',
             ),
           ),
           const SizedBox(
