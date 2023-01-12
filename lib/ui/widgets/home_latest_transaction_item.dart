@@ -44,7 +44,7 @@ class HomeLatestTransactionItem extends StatelessWidget {
             ),
           ),
           Text(
-            'GK tau apa ini',
+            '+ ${formatTransactionCurrency(45000)}',
             style: blackTextStyle.copyWith(
               fontSize: 16,
               fontWeight: medium,

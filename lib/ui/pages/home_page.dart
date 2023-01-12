@@ -202,7 +202,7 @@ class HomePage extends StatelessWidget {
             style: whiteTextStyle,
           ),
           Text(
-            'Rp. 12313213',
+            formatCurrency(12500),
             style: whiteTextStyle.copyWith(
               fontSize: 24,
               fontWeight: semiBold,
@@ -241,7 +241,7 @@ class HomePage extends StatelessWidget {
                 ),
               ),
               Text(
-                'of Rp 20.000',
+                'of ${formatCurrency(20000)}',
                 style: blackTextStyle.copyWith(
                   fontWeight: semiBold,
                 ),

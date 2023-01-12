@@ -52,7 +52,7 @@ class TopUpPage extends StatelessWidget {
                     height: 2,
                   ),
                   Text(
-                    'Balance: Rp 180.000.000',
+                    'Balance: ${formatCurrency(180000000)}',
                     style: greyTextStyle.copyWith(
                       fontSize: 12,
                     ),

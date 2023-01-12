@@ -18,8 +18,12 @@ class _PinPageState extends State<PinPage> {
       });
     }
 
-    if (pinController.text == pin) {
-      Navigator.pop(context, true);
+    if (pinController.text.length == 6) {
+      if (pinController.text == pin) {
+        Navigator.pop(context, true);
+      } else {
+        showCustomSnackbar(context, 'PIN yang anda masukkan salah');
+      }
     }
   }
 
