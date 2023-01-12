@@ -47,13 +47,16 @@ class _TransferPageState extends State<TransferPage> {
             controller: usernameController,
             onFieldSubmitted: (value) {},
           ),
-          buildRecentUsers(),
+          // buildRecentUsers(),
+          buildResult(),
           const SizedBox(
-            height: 274,
+            height: 80,
           ),
           CustomFilledButton(
             title: 'Continue',
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushNamed(context, '/transfer-amount');
+            },
           ),
           const SizedBox(
             height: 50,
@@ -122,7 +125,20 @@ class _TransferPageState extends State<TransferPage> {
             height: 14,
           ),
           Wrap(
+            runSpacing: 17,
+            spacing: 17,
             children: const [
+              TransferResultUserItem(
+                imageUrl: '',
+                name: 'Joanna Lim',
+                username: 'joanna22',
+                isVerified: true,
+              ),
+              TransferResultUserItem(
+                imageUrl: '',
+                name: 'Joanna Lim',
+                username: 'joanna22',
+              ),
               TransferResultUserItem(
                 imageUrl: '',
                 name: 'Joanna Lim',
