@@ -1,14 +1,14 @@
 part of 'pages.dart';
 
-class TopUpPage extends StatelessWidget {
-  const TopUpPage({super.key});
+class DataProviderPage extends StatelessWidget {
+  const DataProviderPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Top Up',
+          'Beli Data',
         ),
       ),
       body: ListView(
@@ -65,7 +65,7 @@ class TopUpPage extends StatelessWidget {
             height: 40,
           ),
           Text(
-            'Select Bank',
+            'Select Provider',
             style: blackTextStyle.copyWith(
               fontSize: 16,
               fontWeight: semiBold,
@@ -74,10 +74,10 @@ class TopUpPage extends StatelessWidget {
           const SizedBox(
             height: 14,
           ),
-          const BankItem(isSelected: true),
-          const BankItem(),
-          const BankItem(),
-          const BankItem(),
+          const ProviderItem(isSelected: true),
+          const ProviderItem(),
+          const ProviderItem(),
+          const ProviderItem(),
           const SizedBox(
             height: 12,
           ),

@@ -10,5 +10,6 @@ part 'home_tips.item.dart';
 part 'home_user_item.dart';
 part 'inputs.dart';
 part 'profile_item_menu.dart';
+part 'provider_item.dart';
 part 'transfer_recent_user_item.dart';
 part 'transfer_result_item.dart';
