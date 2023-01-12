@@ -84,8 +84,14 @@ class _DataPackagePageState extends State<DataPackagePage> {
           ),
           CustomFilledButton(
             title: 'Continue',
-            onPressed: () {
-              Navigator.pushNamed(context, '/transfer-amount');
+            onPressed: () async {
+              final navigator = Navigator.of(context);
+              if (await Navigator.pushNamed(context, '/pin') == true) {
+                navigator.pushNamedAndRemoveUntil(
+                  '/data-success',
+                  (route) => false,
+                );
+              }
             },
           ),
           const SizedBox(
