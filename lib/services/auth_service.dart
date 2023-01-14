@@ -21,4 +21,27 @@ class AuthService {
       rethrow;
     }
   }
+
+  Future<UserModel> register(SignUpFormModel payload) async {
+    try {
+      final res = await http.post(
+        Uri.parse('$baseUrl/register'),
+        body: payload.toJson(),
+      );
+
+      if (res.statusCode == 200) {
+        UserModel user = UserModel.fromJson(jsonDecode(res.body));
+        user = user.copyWith(
+          password: payload.password,
+        );
+
+        return user;
+      } else {
+        final error = jsonDecode(res.body)['message'] ?? 'something went wrong';
+        throw (error);
+      }
+    } catch (e) {
+      rethrow;
+    }
+  }
 }
