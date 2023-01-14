@@ -4,7 +4,7 @@ class SignUpFormModel {
   final String? name;
   final String? email;
   final String? password;
-  final int? pin;
+  final String? pin;
   final String? profilePicture;
   final String? ktp;
 
@@ -21,7 +21,7 @@ class SignUpFormModel {
     String? name,
     String? email,
     String? password,
-    int? pin,
+    String? pin,
     String? profilePicture,
     String? ktp,
   }) =>

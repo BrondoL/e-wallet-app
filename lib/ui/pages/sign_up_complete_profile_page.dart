@@ -1,12 +1,29 @@
 part of 'pages.dart';
 
-class SignUpCompleteProfilePage extends StatelessWidget {
+class SignUpCompleteProfilePage extends StatefulWidget {
   final SignUpFormModel data;
 
   const SignUpCompleteProfilePage({
     super.key,
     required this.data,
   });
+
+  @override
+  State<SignUpCompleteProfilePage> createState() =>
+      _SignUpCompleteProfilePageState();
+}
+
+class _SignUpCompleteProfilePageState extends State<SignUpCompleteProfilePage> {
+  XFile? selectedImage;
+  final pinController = TextEditingController(text: '');
+
+  bool validate() {
+    if (pinController.text.length != 6) {
+      return false;
+    }
+
+    return true;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -24,11 +41,12 @@ class SignUpCompleteProfilePage extends StatelessWidget {
               bottom: 100,
             ),
             decoration: const BoxDecoration(
-                image: DecorationImage(
-              image: AssetImage(
-                'assets/img_logo_light.png',
+              image: DecorationImage(
+                image: AssetImage(
+                  'assets/img_logo_light.png',
+                ),
               ),
-            )),
+            ),
           ),
           Text(
             'Join Us to Unlock\nYour Growth',
@@ -49,31 +67,38 @@ class SignUpCompleteProfilePage extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                // Container(
-                //   width: 120,
-                //   height: 120,
-                //   decoration: const BoxDecoration(
-                //     shape: BoxShape.circle,
-                //     color: lightBackgroundColor,
-                //   ),
-                //   child: Center(
-                //     child: Image.asset(
-                //       'assets/ic_upload.png',
-                //       width: 32,
-                //     ),
-                //   ),
-                // ),
-                Container(
-                  width: 120,
-                  height: 120,
-                  decoration: const BoxDecoration(
-                    shape: BoxShape.circle,
-                    image: DecorationImage(
-                      fit: BoxFit.cover,
-                      image: AssetImage(
-                        'assets/img_profile.png',
-                      ),
+                GestureDetector(
+                  onTap: () async {
+                    final image = await selectImage();
+                    setState(() {
+                      selectedImage = image!;
+                    });
+                  },
+                  child: Container(
+                    width: 120,
+                    height: 120,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: lightBackgroundColor,
+                      image: selectedImage == null
+                          ? null
+                          : DecorationImage(
+                              fit: BoxFit.cover,
+                              image: FileImage(
+                                File(
+                                  selectedImage!.path,
+                                ),
+                              ),
+                            ),
                     ),
+                    child: selectedImage != null
+                        ? null
+                        : Center(
+                            child: Image.asset(
+                              'assets/ic_upload.png',
+                              width: 32,
+                            ),
+                          ),
                   ),
                 ),
                 const SizedBox(
@@ -89,20 +114,38 @@ class SignUpCompleteProfilePage extends StatelessWidget {
                 const SizedBox(
                   height: 30,
                 ),
-                const CustomTextField(
+                CustomTextField(
                   obscureText: true,
                   title: 'Set PIN (6 digit number)',
+                  controller: pinController,
+                  keyboardType: TextInputType.number,
                 ),
                 const SizedBox(
                   height: 30,
                 ),
                 CustomFilledButton(
                   title: 'Continue',
-                  onPressed: () => {
-                    Navigator.pushNamed(
-                      context,
-                      '/sign-up-verify-profile',
-                    )
+                  onPressed: () {
+                    if (validate()) {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => SignUpVerifyProfilePage(
+                            data: widget.data.copyWith(
+                              pin: pinController.text,
+                              profilePicture: selectedImage == null
+                                  ? null
+                                  : "data:image/png;base64,${base64Encode(
+                                      File(selectedImage!.path)
+                                          .readAsBytesSync(),
+                                    )}",
+                            ),
+                          ),
+                        ),
+                      );
+                    } else {
+                      showCustomSnackbar(context, 'Pin harus 6 digit');
+                    }
                   },
                 ),
               ],

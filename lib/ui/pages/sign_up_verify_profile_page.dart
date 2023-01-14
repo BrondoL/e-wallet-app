@@ -1,8 +1,19 @@
 part of 'pages.dart';
 
-class SignUpVerifyProfilePage extends StatelessWidget {
-  const SignUpVerifyProfilePage({super.key});
+class SignUpVerifyProfilePage extends StatefulWidget {
+  final SignUpFormModel data;
 
+  const SignUpVerifyProfilePage({
+    super.key,
+    required this.data,
+  });
+
+  @override
+  State<SignUpVerifyProfilePage> createState() =>
+      _SignUpVerifyProfilePageState();
+}
+
+class _SignUpVerifyProfilePageState extends State<SignUpVerifyProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

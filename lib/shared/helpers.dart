@@ -28,3 +28,11 @@ String formatTransactionCurrency(num number) {
     decimalDigits: 0,
   ).format(number);
 }
+
+Future<XFile?> selectImage() async {
+  XFile? selectedImage = await ImagePicker().pickImage(
+    source: ImageSource.gallery,
+  );
+
+  return selectedImage;
+}
