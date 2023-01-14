@@ -1,7 +1,25 @@
 part of 'pages.dart';
 
-class SignUpPage extends StatelessWidget {
+class SignUpPage extends StatefulWidget {
   const SignUpPage({super.key});
+
+  @override
+  State<SignUpPage> createState() => _SignUpPageState();
+}
+
+class _SignUpPageState extends State<SignUpPage> {
+  final nameController = TextEditingController(text: '');
+  final emailController = TextEditingController(text: '');
+  final passwordController = TextEditingController(text: '');
+
+  bool validate() {
+    if (nameController.text.isEmpty ||
+        emailController.text.isEmpty ||
+        passwordController.text.isEmpty) {
+      return false;
+    }
+    return true;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -44,31 +62,40 @@ class SignUpPage extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const CustomTextField(
+                CustomTextField(
                   title: 'Full Name',
+                  controller: nameController,
                 ),
                 const SizedBox(
                   height: 16,
                 ),
-                const CustomTextField(
+                CustomTextField(
                   title: 'Email Address',
+                  controller: emailController,
                 ),
                 const SizedBox(
                   height: 16,
                 ),
-                const CustomTextField(
+                CustomTextField(
                   title: 'Password',
                   obscureText: true,
+                  controller: passwordController,
                 ),
                 const SizedBox(
                   height: 30,
                 ),
                 CustomFilledButton(
                   title: 'Continue',
-                  onPressed: () => Navigator.pushNamed(
-                    context,
-                    '/sign-up-complete-profile',
-                  ),
+                  onPressed: () {
+                    if (validate()) {
+                      Navigator.pushNamed(
+                        context,
+                        '/sign-up-complete-profile',
+                      );
+                    } else {
+                      showCustomSnackbar(context, 'Semua field harus diisi');
+                    }
+                  },
                 ),
               ],
             ),
@@ -84,6 +111,9 @@ class SignUpPage extends StatelessWidget {
                 '/sign-in',
               ),
             },
+          ),
+          const SizedBox(
+            height: 30,
           )
         ],
       ),

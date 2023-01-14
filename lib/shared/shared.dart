@@ -5,3 +5,4 @@ import 'package:intl/intl.dart';
 
 part 'helpers.dart';
 part 'theme.dart';
+part 'values.dart';
