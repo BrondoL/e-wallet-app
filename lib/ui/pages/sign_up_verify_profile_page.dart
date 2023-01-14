@@ -14,6 +14,16 @@ class SignUpVerifyProfilePage extends StatefulWidget {
 }
 
 class _SignUpVerifyProfilePageState extends State<SignUpVerifyProfilePage> {
+  XFile? selectedImage;
+
+  bool validate() {
+    if (selectedImage == null) {
+      return false;
+    }
+
+    return true;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -55,31 +65,38 @@ class _SignUpVerifyProfilePageState extends State<SignUpVerifyProfilePage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                // Container(
-                //   width: 120,
-                //   height: 120,
-                //   decoration: const BoxDecoration(
-                //     shape: BoxShape.circle,
-                //     color: lightBackgroundColor,
-                //   ),
-                //   child: Center(
-                //     child: Image.asset(
-                //       'assets/ic_upload.png',
-                //       width: 32,
-                //     ),
-                //   ),
-                // ),
-                Container(
-                  width: 120,
-                  height: 120,
-                  decoration: const BoxDecoration(
-                    shape: BoxShape.circle,
-                    image: DecorationImage(
-                      fit: BoxFit.cover,
-                      image: AssetImage(
-                        'assets/img_profile.png',
-                      ),
+                GestureDetector(
+                  onTap: () async {
+                    final image = await selectImage();
+                    setState(() {
+                      selectedImage = image!;
+                    });
+                  },
+                  child: Container(
+                    width: 120,
+                    height: 120,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: lightBackgroundColor,
+                      image: selectedImage == null
+                          ? null
+                          : DecorationImage(
+                              fit: BoxFit.cover,
+                              image: FileImage(
+                                File(
+                                  selectedImage!.path,
+                                ),
+                              ),
+                            ),
                     ),
+                    child: selectedImage != null
+                        ? null
+                        : Center(
+                            child: Image.asset(
+                              'assets/ic_upload.png',
+                              width: 32,
+                            ),
+                          ),
                   ),
                 ),
                 const SizedBox(
@@ -97,11 +114,15 @@ class _SignUpVerifyProfilePageState extends State<SignUpVerifyProfilePage> {
                 ),
                 CustomFilledButton(
                   title: 'Continue',
-                  onPressed: () => {
-                    Navigator.pushNamed(
-                      context,
-                      '/sign-up-success',
-                    ),
+                  onPressed: () {
+                    if (validate()) {
+                      Navigator.pushNamed(
+                        context,
+                        '/sign-up-success',
+                      );
+                    } else {
+                      showCustomSnackbar(context, 'Belum memilih foto');
+                    }
                   },
                 ),
               ],

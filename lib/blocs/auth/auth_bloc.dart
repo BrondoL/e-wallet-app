@@ -1,3 +1,4 @@
+import 'package:e_wallet/models/models.dart';
 import 'package:e_wallet/services/services.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
