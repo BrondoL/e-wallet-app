@@ -1,7 +1,12 @@
 part of 'pages.dart';
 
 class SignUpCompleteProfilePage extends StatelessWidget {
-  const SignUpCompleteProfilePage({super.key});
+  final SignUpFormModel data;
+
+  const SignUpCompleteProfilePage({
+    super.key,
+    required this.data,
+  });
 
   @override
   Widget build(BuildContext context) {

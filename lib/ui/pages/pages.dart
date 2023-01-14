@@ -1,9 +1,12 @@
 import 'dart:async';
 
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:e_wallet/blocs/blocs.dart';
+import 'package:e_wallet/models/models.dart';
 import 'package:e_wallet/shared/shared.dart';
 import 'package:e_wallet/ui/widgets/widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
